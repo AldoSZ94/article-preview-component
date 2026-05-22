@@ -24,7 +24,7 @@ Se puso especial énfasis en:
 
 ## 🚀 Demo
 
-👉 *(Agrega aquí el link de tu demo cuando esté disponible)*
+👉 https://article-preview-component-aldosz94.netlify.app/
 
 ---
 
