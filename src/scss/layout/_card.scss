@@ -1,0 +1,133 @@
+@use '../base/variables' as v;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  max-width: 40rem;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 1rem;
+
+  @media (min-width: v.$laptop) {
+    flex-direction: row;
+    max-width: 70rem;
+    overflow: visible;
+  }
+
+  &__image-img {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__body {
+    padding: 2.8rem 2.8rem 0;
+  }
+
+  &__heading {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: v.$very-dark-grayish-blue;
+  }
+
+  &__description {
+    margin: 2rem 0;
+  }
+
+  &__footer {
+    position: relative;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    padding: 1.5rem 2.8rem;
+  }
+
+  &__author-avatar {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+  }
+
+  &__author-name {
+    font-weight: bold;
+    color: v.$very-dark-grayish-blue;
+  }
+
+  &__share-button {
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    padding: 0;
+    margin-left: auto;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+
+    &.active {
+      background: v.$desaturated-dark-blue;
+
+      path {
+        fill: v.$light-grayish-blue;
+      }
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    visibility: hidden;
+    gap: 2rem;
+    align-items: center;
+    padding: 2.8rem;
+    pointer-events: none;
+    background-color: v.$very-dark-grayish-blue;
+    opacity: 0;
+    transition: 300ms ease-in-out;
+
+    @media (min-width: v.$laptop) {
+      inset: auto;
+      top: -7rem;
+      right: -9rem;
+      width: max-content;
+      padding: 1.5rem 3rem;
+      border-radius: 1rem;
+
+      &::before {
+        position: absolute;
+        bottom: -1rem;
+        left: 50%;
+        width: 2rem;
+        height: 2rem;
+        content: '';
+        background: v.$very-dark-grayish-blue;
+        transform: translateX(-50%) rotate(45deg);
+      }
+    }
+
+    &.active {
+      visibility: visible;
+      pointer-events: auto;
+      opacity: 1;
+    }
+  }
+
+  &__share-text {
+    color: v.$light-grayish-blue;
+    letter-spacing: 0.5rem;
+  }
+
+  &__social-icon {
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+  }
+}
